@@ -1,0 +1,25 @@
+.btnAccion {
+    width: 30px;
+    height: 30px;
+    font-size: 10px;
+    background-color: gray;
+    color: honeydew;
+}
+  
+/*apply hover effect to button tag*/
+  
+.btnAccion:hover {
+    background-color: greenyellow;
+    color: grey;
+}
+.Flex-container{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-content: space-between;
+}
+
+.div{
+    display: flexbox;
+    justify-content: space-between;
+}

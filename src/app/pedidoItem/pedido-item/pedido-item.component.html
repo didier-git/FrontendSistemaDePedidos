@@ -1,0 +1,30 @@
+<div  class="container">
+    <div class="row">
+      <div class="col-sm">
+        {{pedido.id}}
+      </div>
+      <div class="col-sm">
+        {{pedido.identificacion}}
+      </div>
+      <div class="col-sm">
+        {{pedido.nombre}}
+      </div>
+      <div class="col-sm">
+        {{pedido.direccion}}
+      </div>
+      <div class="col-sm">
+        {{pedido.telefono}}
+      </div>
+      <div class="col-sm or">
+        <!-- <button id="{{producto.id}}" (click)="Incrementar()">+</button>
+        <h6>{{cantidad}}</h6>
+        <button id="{{producto.id}}{{producto.id}}{{producto.id}}" (click)="Decrementar()">-</button> -->
+        <!-- (click)="emitiendoDetalle() -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="emitirDetalles()">
+            Ver Pedido
+          </button>  
+      </div>
+
+    </div>
+   
+  </div>
