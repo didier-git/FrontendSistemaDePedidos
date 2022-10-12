@@ -5,20 +5,20 @@
 <form [formGroup]="ProductoForm">
     <div class="mb-3">
         <label for="CodigoInput" class="form-label" >Codigo</label>
-        <input required  placeholder="Ingrese por favor el codigo"  class="form-control" id="CodigoInput" [(ngModel)]="codigo" name="codigo" [ngModelOptions]="{standalone: true}"/>
+        <input class="input" required  placeholder="Ingrese por favor el codigo"  id="CodigoInput" [(ngModel)]="codigo" name="codigo" [ngModelOptions]="{standalone: true}"/>
         <!-- [formControlName]="code" -->
 
         
     </div>
     <div class="mb-3">
         <label  for="name" class="form-label" >Nombre</label>
-        <input required placeholder="Ingrese por el nombre del producto"  class="form-control" id="NombreInput" [(ngModel)]="nombre" name="nombre" [ngModelOptions]="{standalone: true}"/>
+        <input class="input" required placeholder="Ingrese por el nombre del producto"  id="NombreInput" [(ngModel)]="nombre" name="nombre" [ngModelOptions]="{standalone: true}"/>
         <!-- [formControlName]="name" -->
     </div>
     <div class="mb-3">
         <label for="PrecioInput" class="form-label" >Precio</label>
         <!-- [formControlName]="price" -->
-        <input required  placeholder="Ingrese por favor el precio"  class="form-control" id="PrecioInput" [(ngModel)]="precio" name="precio" [ngModelOptions]="{standalone: true}" />
+        <input class="input" required  placeholder="Ingrese por favor el precio"   id="PrecioInput" [(ngModel)]="precio" name="precio" [ngModelOptions]="{standalone: true}" />
     </div>
 
     <button id="btnCrearProducto" type="submit" class="btn btn-primary">Guardar</button>

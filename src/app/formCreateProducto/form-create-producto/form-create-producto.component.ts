@@ -1,9 +1,11 @@
-import { HttpResponse } from '@angular/common/http';
+
+
 
 import { ProductoService } from './../../api/services/producto.service';
 import { ProductoDto } from './../../api/models/producto-dto';
 import { Component, OnInit, Optional } from '@angular/core';
 import { FormBuilder, FormGroup ,FormControl, Validators } from '@angular/forms';
+import Swal from 'sweetalert2'
 
 declare var $: any
 
@@ -43,10 +45,39 @@ export class FormCreateProductoComponent implements OnInit {
           precio: parseInt(this.precio)
         }
         this.api.apiProductoCreateProductoPost$Json({ body: this.producto }).subscribe(res => {
-        })
+          
+          if(res!= null){
+
+
+            this.probandoSwal(); 
+
+
+          }
+
+         const inputs = document.getElementsByClassName('input');
+
+         console.log(inputs);
+
+          
+        });
+   
       })
+
+     
+    
     })
 
+  }
+
+  probandoSwal(){
+
+    Swal.fire({
+      title: "Good job!",
+      text: "You clicked the button!",
+      icon: "success",
+      confirmButtonAriaLabel: "hola"
+    });
+    
   }
 
 }
