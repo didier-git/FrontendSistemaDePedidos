@@ -7,8 +7,6 @@
         <label for="CodigoInput" class="form-label" >Codigo</label>
         <input class="input" required  placeholder="Ingrese por favor el codigo"  id="CodigoInput" [(ngModel)]="codigo" name="codigo" [ngModelOptions]="{standalone: true}"/>
         <!-- [formControlName]="code" -->
-
-        
     </div>
     <div class="mb-3">
         <label  for="name" class="form-label" >Nombre</label>
@@ -20,11 +18,7 @@
         <!-- [formControlName]="price" -->
         <input class="input" required  placeholder="Ingrese por favor el precio"   id="PrecioInput" [(ngModel)]="precio" name="precio" [ngModelOptions]="{standalone: true}" />
     </div>
-
-    <button id="btnCrearProducto" type="submit" class="btn btn-primary">Guardar</button>
+    <button disabled id="btnCrearProducto" type="submit" class="btn btn-primary">Guardar</button>
 </form>
-<div id="exito" hidden class="alert alert-success">
-    <strong>Producto creado con exito!!!</strong></div>
-<div class="alert alert-info">
 </div>
 

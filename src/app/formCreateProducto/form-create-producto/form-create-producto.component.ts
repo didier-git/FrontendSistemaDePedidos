@@ -6,6 +6,7 @@ import { ProductoDto } from './../../api/models/producto-dto';
 import { Component, OnInit, Optional } from '@angular/core';
 import { FormBuilder, FormGroup ,FormControl, Validators } from '@angular/forms';
 import Swal from 'sweetalert2'
+import { getButtonListOpts } from 'sweetalert/typings/modules/options/buttons';
 
 declare var $: any
 
@@ -54,10 +55,6 @@ export class FormCreateProductoComponent implements OnInit {
 
           }
 
-         const inputs = document.getElementsByClassName('input');
-
-         console.log(inputs);
-
           
         });
    
@@ -72,11 +69,17 @@ export class FormCreateProductoComponent implements OnInit {
   probandoSwal(){
 
     Swal.fire({
-      title: "Good job!",
-      text: "You clicked the button!",
+      title: "El producto ha sido guardo con exito!",
+      text: "Da click en el boton para continuar agregando productos!",
       icon: "success",
-      confirmButtonAriaLabel: "hola"
-    });
+      allowOutsideClick: false,
+      showConfirmButton : true
+    }).then((result)=>{
+
+      if(result.isConfirmed){
+        location.reload();
+      }
+    })
     
   }
 
