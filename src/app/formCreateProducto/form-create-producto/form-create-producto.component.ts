@@ -4,9 +4,9 @@
 import { ProductoService } from './../../api/services/producto.service';
 import { ProductoDto } from './../../api/models/producto-dto';
 import { Component, OnInit, Optional } from '@angular/core';
-import { FormBuilder, FormGroup ,FormControl, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import Swal from 'sweetalert2'
-import { getButtonListOpts } from 'sweetalert/typings/modules/options/buttons';
+
 
 declare var $: any
 
@@ -17,20 +17,27 @@ declare var $: any
 })
 export class FormCreateProductoComponent implements OnInit {
 
-  ProductoForm = new FormGroup({
-    code : new FormControl(0),
-    name : new FormControl(''),
-    price : new FormControl(0)
-  });
+  // ProductoForm = new FormGroup({
+  //   code : new FormControl(0),
+  //   nombre : new FormControl(''),
+  //   precio : new FormControl(0)
+  // });
   public producto!: ProductoDto
-  public codigo = ""
-  public nombre = ""
-  public precio = ""
-
-
+  
   constructor(private api: ProductoService,private builder : FormBuilder) { 
     
   }
+
+  ProductoForm = this.builder.group({
+     codigo : [0, [Validators.maxLength(8)]],
+     nombre : [''],
+     precio: [0]
+
+  })
+
+
+  
+
 
 
   
@@ -41,10 +48,12 @@ export class FormCreateProductoComponent implements OnInit {
       $("#btnCrearProducto").on("click", () => {
 
         this.producto = {
-          codigo: parseInt(this.codigo) ,
-          nombre: this.nombre,
-          precio: parseInt(this.precio)
+          codigo: this.ProductoForm.controls.codigo.value?.valueOf(),
+          nombre: this.ProductoForm.controls.nombre.value,
+          precio: this.ProductoForm.controls.precio.value?.valueOf()
         }
+
+       
         this.api.apiProductoCreateProductoPost$Json({ body: this.producto }).subscribe(res => {
           
           if(res!= null){
@@ -54,6 +63,8 @@ export class FormCreateProductoComponent implements OnInit {
 
 
           }
+
+          
 
           
         });
@@ -77,7 +88,7 @@ export class FormCreateProductoComponent implements OnInit {
     }).then((result)=>{
 
       if(result.isConfirmed){
-        location.reload();
+        this.ProductoForm.reset();
       }
     })
     

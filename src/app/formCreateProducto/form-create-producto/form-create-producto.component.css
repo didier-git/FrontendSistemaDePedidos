@@ -1,0 +1,17 @@
+input{
+    margin: 10px;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+}
+
+.dis{
+
+    display: grid;
+    
+}
+label{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

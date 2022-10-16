@@ -15,9 +15,7 @@ declare var $: any;
   templateUrl: './producto-item.component.html',
   styleUrls: ['./producto-item.component.css']
 })
-export class ProductoItemComponent implements
-  OnInit
-  {
+export class ProductoItemComponent implements OnInit{
 
   @Input() producto: ProductoDto = {
     cantidad: null
@@ -28,29 +26,14 @@ export class ProductoItemComponent implements
   @Output() Detalle = new EventEmitter<ProductoDto>();
 
   constructor() {
-
   }
-
   ngOnInit(): void {
-
   }
-
-
-
   emitiendoDetalle(){
     if(this.cantidad!=0){
       this.producto.cantidad = this.cantidad;
       this.Detalle.emit(this.producto);
     }
-
   }
-
-
-
-
-
-
-
-
 
 }
