@@ -11,14 +11,19 @@
                 <label for="CodigoInput" class="form-label">Codigo:</label>
                 <input formControlName="codigo" type="number" class="form-control" required
                     placeholder="Ingrese por favor el codigo" id="CodigoInput"
-                    [ngClass]="{'is-invalid':ProductoForm.get('codigo')?.touched ||
-                    (ProductoForm.get('codigo')?.dirty && ProductoForm.get('codigo')?.invalid)}"
-                   
+                   ngClass="{{(ProductoForm.get('codigo')?.touched && (ProductoForm.get('codigo')?.value === null || ProductoForm.get('codigo')?.value === 0) )?'is-invalid':'is-valid'}}"
                     />
                 <div class="invalid-feedback alert alert-danger" role="alert">
                     El codigo del Producto es requerido
+                    
                 </div>
-               
+                <div class="invalid-feedback alert alert-danger" role="alert">
+                    <span *ngIf="ProductoForm.get('codigo')?.errors?.['maxlength']">
+                        El tamaño del codigo es muy largo</span>
+                </div>
+                
+                <!-- [ngClass]="{'is-invalid':ProductoForm.get('codigo')?.touched ||
+                (ProductoForm.get('codigo')?.dirty && ProductoForm.get('codigo')?.invalid)}" -->
             </div>
 
 
@@ -27,11 +32,12 @@
             <!-- <div class="col-3"></div> -->
             <div class="col-6 dis">
                 <label for="name" class="form-label">Nombre:</label>
-                <input formControlName="nombre" class="form-control" required
+                <input ngClass="{{(ProductoForm.get('nombre')?.touched && ProductoForm.get('nombre')?.value==='')?'is-invalid': 'is-valid'}}" formControlName="nombre" class="form-control"  
                     placeholder="Ingrese por favor el nombre del producto" id="NombreInput" />
-                <div class="invalid-feedback">
-                    This is a dark alert—check it out!
+                <div class="invalid-feedback alert alert-danger">
+                    El nombre del producto es requerido!
                 </div>
+                <!-- -->
 
             </div>
 
@@ -39,10 +45,10 @@
         <div class="row justify-content-center">
             <div class="col-6 dis">
                 <label for="PrecioInput" class="form-label">Precio:</label>
-                <input type="number" formControlName="precio" class="form-control" required
+                <input ngClass="{{(ProductoForm.get('precio')?.touched && (ProductoForm.get('precio')?.value=== null || ProductoForm.get('precio')?.value === 0 ))?'is-invalid':'is-valid'}}" type="number" formControlName="precio" class="form-control" required
                     placeholder="Ingrese por favor el precio" id="PrecioInput" />
-                <div class="invalid-feedback">
-                    This is a dark alert—check it out!
+                <div class="invalid-feedback alert alert-danger">
+                    El precio del producto es requerido!
                 </div>
             </div>
 

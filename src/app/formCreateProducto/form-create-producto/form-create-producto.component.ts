@@ -17,11 +17,6 @@ declare var $: any
 })
 export class FormCreateProductoComponent implements OnInit {
 
-  // ProductoForm = new FormGroup({
-  //   code : new FormControl(0),
-  //   nombre : new FormControl(''),
-  //   precio : new FormControl(0)
-  // });
   public producto!: ProductoDto
   
   constructor(private api: ProductoService,private builder : FormBuilder) { 
@@ -29,19 +24,11 @@ export class FormCreateProductoComponent implements OnInit {
   }
 
   ProductoForm = this.builder.group({
-     codigo : [0, [Validators.maxLength(8)]],
+     codigo : [0,Validators.required],
      nombre : [''],
      precio: [0]
 
   })
-
-
-  
-
-
-
-  
-
 
   ngOnInit(): void {
     $(() => {
@@ -68,13 +55,16 @@ export class FormCreateProductoComponent implements OnInit {
 
           
         });
+
+       
+        
    
       })
 
      
     
     })
-
+    console.log(this.ProductoForm.controls.codigo.errors);
   }
 
   probandoSwal(){
